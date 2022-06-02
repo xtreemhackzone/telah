@@ -16,16 +16,11 @@ class LoginController {
         'rememberMe': false,
         LoginField.CHECKBOX.name: FormControl<bool>(
           value: false,
-          validators: [Validators.requiredTrue],
         ),
       });
 
   Future<response.LoginResponse?> login(FormGroup formGroup) async {
     final data = formGroup.value;
-    print(formGroup.control(LoginField.IDENTIFIER.name).value);
-    print(data[LoginField.IDENTIFIER.name].toString());
-    print(data[LoginField.PASSWORD.name].toString());
-    print(data[LoginField.CHECKBOX.name]);
     LoginRequest request = LoginRequest(
         identifier: data[LoginField.IDENTIFIER.name].toString(),
         password: data[LoginField.PASSWORD.name].toString(),
