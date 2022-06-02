@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import '../../../util/assets.dart';
 import '../../../util/size_model.dart';
 import 'form/sign_in_form.dart';
 
