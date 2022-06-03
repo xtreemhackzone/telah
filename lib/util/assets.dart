@@ -1,5 +1,5 @@
 class AssetsPath {
-  static const String onBoarding1 = 'assets/svg/onboard1.svg';
+  static const String onBoarding1 = 'assets/svg/onboard_1.svg';
   static const String onBoarding2 = 'assets/svg/onboard_2.svg';
   static const String onBoarding3 = 'assets/svg/onboard_3.svg';
 
@@ -7,7 +7,18 @@ class AssetsPath {
   static const String keyIcon = 'assets/svg/key_icon.svg';
   static const String logoWhite = 'assets/svg/logo_white.svg';
   static const String logoBlue = 'assets/svg/logo_blue.svg';
-  static const String optionIcon = 'assets/svg/option.svg';
+  static const String agentOption = 'assets/svg/agent_option2.svg';
+  static const String estateOption = 'assets/svg/estate_option2.svg';
+  static const String landlordOption = 'assets/svg/landlord_option.svg';
+  static const String formHouse = 'assets/svg/form_house.svg';
+  static const String formPhone = 'assets/svg/form_phone.svg';
+  static const String formEmail = 'assets/svg/form_email.svg';
+  static const String formLocation = 'assets/svg/form_location.svg';
+  static const String formRole = 'assets/svg/form_role.svg';
+  static const String formVerify = 'assets/svg/form_verify.svg';
+  static const String formPassword = 'assets/svg/form_password.svg';
+  static const String formPersonalInfo = 'assets/svg/form_personal_info.svg';
+
   static const String successIcon = 'assets/svg/success.svg';
   static const String userIcon = 'assets/svg/user_icon.svg';
   static const String markedEnvelopIcon = 'assets/svg/marked_envelop.svg';

@@ -4,15 +4,14 @@ import 'package:nb_utils/nb_utils.dart';
 import '../../util/assets.dart';
 import '../../util/strings.dart';
 import 'intro_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({Key? key}) : super(key: key);
+class OnBoardingScreen extends StatefulWidget {
+  const OnBoardingScreen({Key? key}) : super(key: key);
 
   @override
-  _OnboardingScreenState createState() => _OnboardingScreenState();
+  _OnBoardingScreenState createState() => _OnBoardingScreenState();
 }
-class _OnboardingScreenState extends State<OnboardingScreen> {
+class _OnBoardingScreenState extends State<OnBoardingScreen> {
   bool? isActive;
   PageController pageController = PageController(initialPage: 0);
   int pageChanged = 0;
@@ -88,13 +87,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.only(top: size.height * 0.1, left: 10, right: 10),
-                      //child: SvgPicture.asset(AssetsPath.onBoarding1, height: size.height * 0.3, fit: BoxFit.contain,width: size.width,),
-                      child: Image(
+                      child: SvgPicture.asset(AssetsPath.onBoarding1, height: size.height * 0.3, fit: BoxFit.contain,width: size.width,),
+                      /*child: Image(
                         image: const AssetImage('assets/png/1.png'),
                         height: size.height * 0.3,
                         width: size.width,
                         fit: BoxFit.contain,
-                      ),
+                      ),*/
                     ),
                     const SizedBox(height: 4),
                     Center(
@@ -114,12 +113,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.only(top: size.height * 0.1, left: 10, right: 10),
-                      child: Image(
+                      child: SvgPicture.asset(AssetsPath.onBoarding2, height: size.height * 0.3, fit: BoxFit.contain,width: size.width,),
+                      /*child: Image(
                         image: const AssetImage('assets/png/2.png'),
                         height: size.height * 0.3,
                         width: size.width,
                         fit: BoxFit.contain,
-                      ),
+                      ),*/
                     ),
                     const SizedBox(height: 4),
                     Center(
@@ -139,12 +139,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.only(top: size.height * 0.1, left: 10, right: 10),
-                      child: Image(
+                      child: SvgPicture.asset(AssetsPath.onBoarding3, height: size.height * 0.3, fit: BoxFit.contain,width: size.width,),
+                      /*child: Image(
                         image: const AssetImage('assets/png/3.png'),
                         height: size.height * 0.3,
                         width: size.width,
                         fit: BoxFit.contain,
-                      ),
+                      ),*/
                     ),
                     const SizedBox(height: 4),
                     Center(

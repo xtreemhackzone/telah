@@ -36,11 +36,11 @@ class _SplashScreenState extends State<SplashScreen> {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       print(prefs.getInt('onBoard'));
       finish(context);
-      const OnboardingScreen().launch(context);
+      const OnBoardingScreen().launch(context);
     }
     else{
       finish(context);
-      const OnboardingScreen().launch(context);
+      const OnBoardingScreen().launch(context);
     }
   }
   @override

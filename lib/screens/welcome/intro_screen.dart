@@ -3,8 +3,9 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:manager/screens/auth/sign_in/sign_in_screen.dart';
 import '../../util/colors.dart';
 import '../../util/strings.dart';
-//import '../account/sign_up/account_type_screen.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import '../setup/account_type/account_type_screen.dart';
 
 
 class IntroScreen extends StatefulWidget {
@@ -113,11 +114,11 @@ class _IntroScreenState extends State<IntroScreen> {
                       borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                       highlightColor: Colors.blue.shade400,
                       onTap: () => {
-                        /*Navigator.push(
+                        Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                const AccountTypeScreen()))*/
+                                const AccountTypeScreen()))
                       },
                       child: const Center(
                         child: Text(
