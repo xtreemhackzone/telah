@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:manager/util/colors.dart';
 
 import '../../../../util/size_model.dart';
-import '../../../../widgets/custom_buttons.dart';
+import '../../../../widgets/custom_dividers.dart';
 
 Widget todoWidget(BuildContext context,IconData icon, String title, String subtitle, String link) {
   return Padding(

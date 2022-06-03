@@ -1,12 +1,13 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../util/colors.dart';
+import '../../../../widgets/custom_dividers.dart';
 import '../widgets/dashboard_widgets.dart';
 import '../widgets/custom_widgets.dart';
 import '../model/dashboard_model.dart';
 import '../../../../util/size_model.dart';
-import '../../../../widgets/custom_buttons.dart';
 import '../widgets/outstanding_bill.dart';
 import '../widgets/unverified_payment.dart';
 import '../widgets/upcoming_bill.dart';
@@ -101,7 +102,13 @@ class _DashboardTabState extends State<DashboardTab> {
               children: [
                 Icon(Iconsax.sms, size: Sizes.w30, color: Colors.black,),
                 customVerticalDivider(width: Sizes.w15),
-                Icon(Iconsax.notification, size: Sizes.w30, color: Colors.black,),
+                Padding(
+                  padding: EdgeInsets.only(right: 4),
+                    child: Badge(
+                      badgeContent: Text('3', style: TextStyle(fontSize: 13, color: Colors.white),),
+                      child: Icon(Iconsax.notification, size: Sizes.w30, color: Colors.black,),
+                    )
+                )
               ],
             ),
           )

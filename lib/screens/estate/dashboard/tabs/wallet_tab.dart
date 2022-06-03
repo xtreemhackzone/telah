@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../util/assets.dart';
 import '../../../../util/colors.dart';
 import '../../../../util/size_model.dart';
-import '../../../../widgets/custom_buttons.dart';
+import '../../../../widgets/custom_dividers.dart';
 import '../widgets/transaction_card.dart';
 
 

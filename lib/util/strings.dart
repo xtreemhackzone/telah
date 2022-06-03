@@ -1,4 +1,4 @@
-const String appName = 'Telah Manager App';
+const String appName = 'Telah Manager';
 const String getStarted = 'Get Started';
 const String appSkip = 'Skip';
 const String appSlogan = 'People. Technology. Places';
@@ -24,7 +24,13 @@ const String phoneNumberTxt = 'Phone Number';
 const String proceedTxt = 'Proceed';
 const String verifyTxt = 'Verify';
 const String resendTxt = 'Resend Code';
+const String LoginTxt = 'Log In';
+const String emailP = 'Log In';
+const String googleSignUpTxt = "Continue with Google";
 
+// Forgot password Content
+const String forgotTitleTxt = "Forgot your password?";
+const String forgotDescTxt = "Enter your email address. We will send a 4 digit code to your mail";
 
 // Intro Screen Content
 const String userCreateAccountTxt = 'Create an account';

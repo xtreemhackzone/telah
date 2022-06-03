@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:manager/screens/account/sign_in/sign_in.dart';
+import 'package:manager/screens/auth/sign_in/sign_in_screen.dart';
 import '../../util/colors.dart';
 import '../../util/strings.dart';
 //import '../account/sign_up/account_type_screen.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 
 class IntroScreen extends StatefulWidget {
@@ -14,6 +15,53 @@ class IntroScreen extends StatefulWidget {
 }
 
 class _IntroScreenState extends State<IntroScreen> {
+
+  var isSuccess = false;
+  GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);
+
+  @override
+  void initState() {
+    //changeStatusColor(appStore.scaffoldBackground!);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // changeStatusColor(appStore.scaffoldBackground!);
+    super.dispose();
+  }
+
+  void onSignInTap() async {
+    await googleSignIn.signIn().then((res) async {
+      await res!.authentication.then((accessToken) async {
+        isSuccess = true;
+        //appStore.setGoogleUserName(name: res.displayName);
+        //appStore.setGoogleUserEmail(email: res.email);
+        //appStore.setGoogleUserPhotoUrl(photoUrl: res.photoUrl);
+        //await appStore.setValueGoogleSignIn(val: true);
+        setState(() {});
+        print('Access Token: ${accessToken.accessToken.toString()}');
+      }).catchError((error) {
+        isSuccess = false;
+        setState(() {});
+        throw (error.toString());
+      });
+    }).catchError((error) {
+      isSuccess = false;
+      setState(() {});
+      throw (error.toString());
+    });
+  }
+
+  void onSignOutTap() async {
+    await googleSignIn.signOut().catchError((error) => throw (error.toString()));
+    //await appStore.setValueGoogleSignIn(val: false);
+    // appStore.setGoogleUserName(name: '');
+    //appStore.setGoogleUserEmail(email: '');
+    //appStore.setGoogleUserPhotoUrl(photoUrl: '');
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,6 +129,34 @@ class _IntroScreenState extends State<IntroScreen> {
                         ),
                       ),
                     ),
+                  ),
+                ),
+              ),
+
+              Padding(padding: const EdgeInsets.only(
+                  left: 48, right: 48, bottom: 8, top: 8),
+                child: MaterialButton(
+                  onPressed: () {
+                    onSignInTap();
+                  },
+                  color: Colors.white,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      side: BorderSide(color: Colors.grey.shade300)
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image.asset("assets/png/google.png", width: 20,),
+                      const Spacer(),
+                      Text(googleSignUpTxt, style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey.shade500
+                      ),),
+                      const Spacer(),
+                    ],
                   ),
                 ),
               ),

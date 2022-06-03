@@ -1,5 +1,5 @@
 class AssetsPath {
-  static const String onBoarding1 = 'assets/svg/onboard_1.svg';
+  static const String onBoarding1 = 'assets/svg/onboard1.svg';
   static const String onBoarding2 = 'assets/svg/onboard_2.svg';
   static const String onBoarding3 = 'assets/svg/onboard_3.svg';
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../util/size_model.dart';
+import '../../../util/strings.dart';
+import '../../../widgets/app_bar.dart';
 import 'form/sign_in_form.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -15,11 +17,12 @@ class _SignInScreenState extends State<SignInScreen> {
     Sizes().heightSizeCalc(context);
     Sizes().widthSizeCalc(context);
     return Scaffold(
+      appBar: AppBarWidget().appbar(context: context,),
       body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
-              height: 120,
+              height: 60,
             ),
             Center(
               child: Image(
@@ -30,7 +33,7 @@ class _SignInScreenState extends State<SignInScreen> {
             SizedBox(height: 30,),
             Center(
                 child: Text(
-                  'Log In',
+                  LoginTxt,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, fontSize: Sizes.w30

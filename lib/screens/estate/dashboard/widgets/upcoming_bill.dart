@@ -5,7 +5,7 @@ import 'package:iconsax/iconsax.dart';
 import '../../../../util/assets.dart';
 import '../../../../util/colors.dart';
 import '../../../../util/size_model.dart';
-import '../../../../widgets/custom_buttons.dart';
+import '../../../../widgets/custom_dividers.dart';
 
 Widget UpcomingBill(){
   return Card(

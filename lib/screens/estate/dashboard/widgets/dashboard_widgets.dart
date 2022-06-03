@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../util/colors.dart';
 import '../../../../util/size_model.dart';
 import '../../../../util/strings.dart';
-import '../../../../widgets/custom_buttons.dart';
+import '../../../../widgets/custom_dividers.dart';
 //import '../../property_setup/property_setup_screen.dart';
 
 Widget AccountSetup(BuildContext context){

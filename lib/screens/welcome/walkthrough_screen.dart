@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:nb_utils/nb_utils.dart';
+import '../../util/assets.dart';
 import '../../util/strings.dart';
 import 'intro_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -32,6 +35,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       decoration: BoxDecoration(color: isActive ? Colors.blue : const Color(0xFF7E869B), borderRadius: const BorderRadius.all(Radius.circular(20))),
     );
   }
+
+  _storeOnboardInfo() async {
+    print("Shared pref called");
+    int isViewed = 0;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('onBoard', isViewed);
+    print(prefs.getInt('onBoard'));
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +88,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.only(top: size.height * 0.1, left: 10, right: 10),
+                      //child: SvgPicture.asset(AssetsPath.onBoarding1, height: size.height * 0.3, fit: BoxFit.contain,width: size.width,),
                       child: Image(
                         image: const AssetImage('assets/png/1.png'),
                         height: size.height * 0.3,
@@ -188,7 +201,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       child: InkWell(
                         borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                         highlightColor: Colors.blue.shade400,
-                        onTap: () {
+                        onTap: () async {
+                          await _storeOnboardInfo();
                           const IntroScreen().launch(context);
                         },
                         child: const Center(

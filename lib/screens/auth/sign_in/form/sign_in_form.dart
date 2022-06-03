@@ -8,6 +8,7 @@ import '../../../../util/constant.dart';
 import '../../../../util/size_model.dart';
 import '../../../../util/strings.dart';
 import '../../../../widgets/custom_buttons.dart';
+import '../../../../widgets/custom_dividers.dart';
 import '../../../estate/dashboard/manager_dashboard_screen.dart';
 import '../../../welcome/intro_screen.dart';
 
@@ -102,7 +103,7 @@ class _SignInFormState extends State<SignInForm> {
             SizedBox(
               height: 50,
             ),
-            ReactiveFormConsumer(builder: (context, formGroup, child) => UserWidgets().customButton(
+            ReactiveFormConsumer(builder: (context, formGroup, child) => ButtonWidgets().customButton(
                 context: context,
                 function: form.valid ? () async {
                   var result = await LoginController().login(formGroup);

@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:manager/screens/welcome/intro_screen.dart';
 import 'package:nb_utils/nb_utils.dart';
 import '../../util/assets.dart';
 import '../../util/colors.dart';
 import '../../util/strings.dart';
 import 'walkthrough_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -15,6 +17,8 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  int? isViewed;
 
   startTime() async {
     var duration = const Duration(seconds: 9);
@@ -27,9 +31,17 @@ class _SplashScreenState extends State<SplashScreen> {
     startTime();
   }
 
-  void navigationPage() {
-    finish(context);
-    const OnboardingScreen().launch(context);
+  Future<void> navigationPage() async {
+    if (isViewed != 0){
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      print(prefs.getInt('onBoard'));
+      finish(context);
+      const OnboardingScreen().launch(context);
+    }
+    else{
+      finish(context);
+      const OnboardingScreen().launch(context);
+    }
   }
   @override
   Widget build(BuildContext context) {
