@@ -18,12 +18,21 @@ class AssetsPath {
   static const String formVerify = 'assets/svg/form_verify.svg';
   static const String formPassword = 'assets/svg/form_password.svg';
   static const String formPersonalInfo = 'assets/svg/form_personal_info.svg';
-
+  static const String formPayment = 'assets/svg/form_payment.svg';
+  static const String formBill = 'assets/svg/bill.svg';
+  static const String animateDone = 'assets/svg/done.flr';
+  static const String workspace = 'assets/svg/workspace.svg';
   static const String successIcon = 'assets/svg/success.svg';
   static const String userIcon = 'assets/svg/user_icon.svg';
   static const String markedEnvelopIcon = 'assets/svg/marked_envelop.svg';
   static const String successGif = 'assets/images/success.gif';
   static const String tickIcon = 'assets/svg/marked_gray_icon.svg';
+  // account settings icons
+  static const String settingsProfileIcon = 'assets/svg/setting_profile_icon.svg';
+  static const String settingsAccountIcon = 'assets/svg/setting_account_icon.svg';
+  static const String settingsBillingIcon = 'assets/svg/setting_billing_icon.svg';
+  static const String settingsManageUsersIcon = 'assets/svg/setting_manage_icon.svg';
+  static const String settingsChangePassIcon = 'assets/svg/setting_change_icon.svg';
 
   //dashboard Icons
   static const String dashboardIcon = 'assets/svg/dashboard.png';
@@ -75,7 +84,7 @@ class AssetsPath {
   static const String checkgrey = 'assets/icons/checkgrey.png';
   static const String services = 'assets/icons/services.png';
   static const String servicecharge = 'assets/icons/servicecharge.png';
-  static const String houseproperty = 'assets/images/house.png';
+  static const String houseproperty = 'assets/png/house.png';
   static const String success = 'assets/images/success.png';
   static const String ledger = 'assets/icons/ledger.png';
   static const String more = 'assets/icons/more.png';

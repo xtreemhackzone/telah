@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:manager/widgets/custom_buttons.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import 'package:manager/util/colors.dart';
 import 'package:manager/util/size_model.dart';
 import 'package:manager/util/strings.dart';
-
 import '../../estate/dashboard/manager_dashboard_screen.dart';
 
 class EstateCreatedScreen extends StatefulWidget {
@@ -24,9 +24,8 @@ class _EstateCreatedScreenState extends State<EstateCreatedScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 200,
-              padding: const EdgeInsets.all(32),
-              child: Image.asset('assets/images/success.png'),
+              height: 250,
+                child: Lottie.asset('assets/svg/mini_success.json',repeat: false)
             ),
             10.height,
             const SizedBox(
@@ -35,17 +34,18 @@ class _EstateCreatedScreenState extends State<EstateCreatedScreen> {
                   estateSuccessTxt,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.bold,
                     fontSize: 25,
                   )
               ),
             ),
+            SizedBox(height: 20,),
             //Padding(),
-            Text(
-              estateSuccessSubtitleTxt,
+            /*Text(
+              "Proceed to add a property unit",
               style: primaryTextStyle(size: 15),
               textAlign: TextAlign.center,
-            ).paddingSymmetric(vertical: 8, horizontal: 60),
+            ).paddingSymmetric(vertical: 8, horizontal: 60),*/
             50.height,
             Padding(
               padding: const EdgeInsets.only(

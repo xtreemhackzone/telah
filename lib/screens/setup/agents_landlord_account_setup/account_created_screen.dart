@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:manager/screens/landlord_agent/dashboard/landlord_agent_dashboard_screen.dart';
 import 'package:manager/widgets/custom_buttons.dart';
 import 'package:nb_utils/nb_utils.dart';
-
 import '../../../util/colors.dart';
 import '../../../util/size_model.dart';
 
@@ -24,11 +25,10 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 230,
-              padding: const EdgeInsets.all(32),
-              child: Image.asset('assets/images/success.gif'),
+                height: 250,
+                child: Lottie.asset('assets/svg/mini_success.json',repeat: false)
             ),
-            70.height,
+            30.height,
             Text('Account Created Successfully', style: boldTextStyle(size: 20)),
             16.height,
             Text(
@@ -53,6 +53,9 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
     );
   }
   proceed() {
-
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const LandlordAgentDashboard())
+    );
   }
 }

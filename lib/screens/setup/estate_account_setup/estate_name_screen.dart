@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:manager/widgets/custom_buttons.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -29,6 +30,16 @@ class _EstateNameScreenState extends State<EstateNameScreen> {
               Container(
                 child: Column(
                   children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16, right: 16, bottom: 30),
+                      child: Center(
+                          child: FAProgressBar(
+                            currentValue: 10,
+                            backgroundColor: const Color(0xffE3E6E8),
+                            progressColor: AppColors.defaultBlue,
+                            size: 9,
+                          )),
+                    ),
                     SizedBox(height: 20,),
                     SvgPicture.asset(AssetsPath.formHouse, height: 70),
                     const SizedBox(

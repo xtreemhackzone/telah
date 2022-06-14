@@ -1,7 +1,9 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../util/assets.dart';
 import '../../../../util/colors.dart';
 import '../../../../widgets/custom_dividers.dart';
 import '../widgets/dashboard_widgets.dart';
@@ -32,7 +34,7 @@ class _DashboardTabState extends State<DashboardTab> {
     ToDo(Iconsax.danger, 'Remove a resident',
         'Generate a code for a new tenant today','/remove_resident'),
     ToDo(Iconsax.clipboard_text, 'Resolve an issue',
-        'Generate a code for a new tenant today',''),
+        'Generate a code for a new tenant today','/incident_report'),
   ];
   @override
   Widget build(BuildContext context) {
@@ -43,10 +45,10 @@ class _DashboardTabState extends State<DashboardTab> {
       message = 'Good Morning, ';
     } else if ((timeNow > 12) && (timeNow <= 16)) {
       message = 'Good Afternoon, ';
-    } else if ((timeNow > 16) && (timeNow < 20)) {
+    } else if ((timeNow > 16) && (timeNow < 23)) {
       message = 'Good Evening, ';
     } else {
-      message = 'Good Night, ';
+      message = 'Good Evening, ';
     }
     Sizes().heightSizeCalc(context);
     Sizes().widthSizeCalc(context);
@@ -100,8 +102,11 @@ class _DashboardTabState extends State<DashboardTab> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Iconsax.sms, size: Sizes.w30, color: Colors.black,),
-                customVerticalDivider(width: Sizes.w15),
+                InkWell(
+
+                  child: SvgPicture.asset(AssetsPath.workspace, height: Sizes.w25, color: Colors.black),
+                ),
+                customVerticalDivider(width: Sizes.w10),
                 Padding(
                   padding: EdgeInsets.only(right: 4),
                     child: Badge(
@@ -244,7 +249,7 @@ class _DashboardTabState extends State<DashboardTab> {
                 ],
               ),
               customDivider(height: Sizes.h20),
-              UnverifiedPayments(),
+              UnverifiedPayments(context),
               customDivider(height: Sizes.h20),
               OutstandingBills(),
               customDivider(height: Sizes.h20),

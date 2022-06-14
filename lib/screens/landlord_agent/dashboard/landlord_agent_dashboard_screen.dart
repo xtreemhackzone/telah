@@ -7,14 +7,14 @@ import 'tabs/notifications_tab.dart';
 import 'tabs/messages_tab.dart';
 import 'package:iconsax/iconsax.dart';
 
-class AgentDashboard extends StatefulWidget {
-  const AgentDashboard({Key? key}) : super(key: key);
+class LandlordAgentDashboard extends StatefulWidget {
+  const LandlordAgentDashboard({Key? key}) : super(key: key);
 
   @override
-  State<AgentDashboard> createState() => _AgentDashboardState();
+  State<LandlordAgentDashboard> createState() => _LandlordAgentDashboardState();
 }
 
-class _AgentDashboardState extends State<AgentDashboard> {
+class _LandlordAgentDashboardState extends State<LandlordAgentDashboard> {
   int _currentIndex = 0;
   List<BottomNav> bottomNav = [
     BottomNav(iconPath: Iconsax.category, name: 'Home'),

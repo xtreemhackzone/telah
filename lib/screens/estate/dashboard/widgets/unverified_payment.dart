@@ -6,8 +6,9 @@ import '../../../../util/assets.dart';
 import '../../../../util/colors.dart';
 import '../../../../util/size_model.dart';
 import '../../../../widgets/custom_dividers.dart';
+import '../../payment/unresolve_payments_screen.dart';
 
-Widget UnverifiedPayments(){
+Widget UnverifiedPayments(BuildContext context){
   return Card(
     elevation: 0,
     shape: RoundedRectangleBorder(
@@ -71,7 +72,16 @@ Widget UnverifiedPayments(){
         const SizedBox(height: 10,),
         expandCh(),
         const SizedBox(height: 20,),
-        Text("View All"),
+        InkWell(
+          onTap: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => UnresolvedPaymentsScreen(),
+                )
+            );
+          },
+          child: Text("View All"),
+        ),
         const SizedBox(height: 20,),
       ],
     ),

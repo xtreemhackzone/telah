@@ -3,9 +3,9 @@ import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.da
 import 'package:flutter_svg/svg.dart';
 
 import 'package:manager/util/assets.dart';
-import 'package:manager/util/colors.dart';
 import 'package:manager/util/size_model.dart';
 import 'package:manager/util/strings.dart';
+import '../../../util/colors.dart';
 import 'components/forms/account_agent_form.dart';
 
 class AccountAgentScreen extends StatefulWidget {
@@ -43,20 +43,16 @@ class _AccountAgentScreenState extends State<AccountAgentScreen> {
               child: Column(
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 16),
+                    padding: const EdgeInsets.only(left: 16, right: 16, bottom: 30),
                     child: Center(
                         child: FAProgressBar(
-                          currentValue: 40,
+                          currentValue: 10,
                           backgroundColor: const Color(0xffE3E6E8),
                           progressColor: AppColors.defaultBlue,
                           size: 9,
                         )),
                   ),
-
-                  SizedBox(
-                    width: 50,
-                    child: SvgPicture.asset(AssetsPath.userIcon),
-                  ),
+                  SvgPicture.asset(AssetsPath.formPersonalInfo, height: 60,),
                   const SizedBox(
                     width: 250,
                     child: Text(agencyCreatedTxt,

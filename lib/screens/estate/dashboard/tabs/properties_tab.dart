@@ -4,6 +4,7 @@ import 'package:manager/util/colors.dart';
 
 import '../../../../util/size_model.dart';
 import '../../../../util/spacing.dart';
+import '../../property_unit/create/property_address_screen.dart';
 import '../model/properties_model.dart';
 import '../widgets/property_units.dart';
 
@@ -96,11 +97,11 @@ class _PropertiesTabstate extends State<PropertiesTab> {
                 children: [
                   PropertyUnitCard(
                     address: 'Room 1 B2',
-                    propertyType: 'Ebi Okpongu',
+                    propertyOccupant: 'Ebi Okpongu',
                   ),
                   PropertyUnitCard(
                     address: 'Room 2 B5',
-                    propertyType: 'Kingsley Amadi',
+                    propertyOccupant: 'Kingsley Amadi',
                   ),
                 ],
               ),
@@ -109,8 +110,8 @@ class _PropertiesTabstate extends State<PropertiesTab> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            // Add your onPressed code here!
-
+            Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const AddPropertyAddressScreen()));
           },
           backgroundColor: AppColors.defaultBlue,
           child: const Icon(Icons.add),

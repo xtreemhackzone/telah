@@ -57,14 +57,14 @@ const String signUpSubtitleTxt = 'This will help us streamline your setup experi
 const String accountCreatedTxt = 'Your account has been created';
 const String agencyCreatedTxt = 'Enter Agency Details';
 
-const String estateSuccessTxt = 'Your estate has been set-up successfully!';
+const String estateSuccessTxt = 'Your account has been created successfully!';
 const String estateSuccessSubtitleTxt = 'You’re all set John! Proceed to start using TELAH';
 const String estatePhoneTxt = 'Enter a phone number for this estate?';
 
 
 const String addPropertyUnitTxt = 'Add Property Unit';
 const String accountSetupMsgTxt = 'You are yet to add a property unit';
-const String propertySetupMsgTxt = 'Let’s help you set-up your account';
+const String propertySetupMsgTxt = 'Let’s help you set-up your estate';
 
 
 

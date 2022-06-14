@@ -4,7 +4,7 @@ import '../../../../util/colors.dart';
 import '../../../../util/size_model.dart';
 import '../../../../util/strings.dart';
 import '../../../../widgets/custom_dividers.dart';
-//import '../../property_setup/property_setup_screen.dart';
+import '../../estate_setup/add_estate_units_screen.dart';
 
 Widget AccountSetup(BuildContext context){
   return Padding(
@@ -30,7 +30,7 @@ Widget AccountSetup(BuildContext context){
               children: [
                 Row(
                   children: [
-                    Text('Account Setup',
+                    Text('Estate Setup',
                         style: TextStyle(
                             color: Colors.blue,
                             fontSize: Sizes.w20,
@@ -65,11 +65,11 @@ Widget AccountSetup(BuildContext context){
                 borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                 highlightColor: Colors.blue.shade400,
                 onTap: () => {
-                  /*Navigator.push(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                          const PropertySetupScreen()))*/
+                          const AddEstateUnitsScreen()))
                 },
                 child: Center(
                   child: Text(

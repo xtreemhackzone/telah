@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:nb_utils/nb_utils.dart';
 import '../../util/assets.dart';
 import '../../util/strings.dart';
@@ -37,7 +38,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   _storeOnboardInfo() async {
     print("Shared pref called");
-    int isViewed = 0;
+    int isViewed = 1;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('onBoard', isViewed);
     print(prefs.getInt('onBoard'));
@@ -86,8 +87,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 Column(
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(top: size.height * 0.1, left: 10, right: 10),
-                      child: SvgPicture.asset(AssetsPath.onBoarding1, height: size.height * 0.3, fit: BoxFit.contain,width: size.width,),
+                      padding: EdgeInsets.only(top: size.height * 0.05, left: 10, right: 10),
+                      child: Lottie.asset('assets/svg/payment.zip', height: size.height * 0.4, fit: BoxFit.contain,width: size.width,repeat: false),
+                      //child: SvgPicture.asset(AssetsPath.onBoarding1, height: size.height * 0.3, fit: BoxFit.contain,width: size.width,),
                       /*child: Image(
                         image: const AssetImage('assets/png/1.png'),
                         height: size.height * 0.3,
@@ -131,15 +133,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     const SizedBox(height: 15.0),
                     Padding(
                       padding: const EdgeInsets.only(left: 40, right: 40),
-                      child: Text(mlSlideTwoSubtitle, textAlign: TextAlign.justify, style: secondaryTextStyle(size: 16)),
+                      child: Text(mlSlideTwoSubtitle, textAlign: TextAlign.center, style: secondaryTextStyle(size: 16)),
                     ),
                   ],
                 ),
                 Column(
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(top: size.height * 0.1, left: 10, right: 10),
-                      child: SvgPicture.asset(AssetsPath.onBoarding3, height: size.height * 0.3, fit: BoxFit.contain,width: size.width,),
+                      padding: EdgeInsets.only(top: size.height * 0.05, left: 10, right: 10),
+                      child: Lottie.asset('assets/svg/financial_report.json', height: size.height * 0.4, fit: BoxFit.contain,width: size.width,),
+                      //child: SvgPicture.asset(AssetsPath.onBoarding3, height: size.height * 0.3, fit: BoxFit.contain,width: size.width,),
                       /*child: Image(
                         image: const AssetImage('assets/png/3.png'),
                         height: size.height * 0.3,
@@ -157,7 +160,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     const SizedBox(height: 15.0),
                     Padding(
                       padding: const EdgeInsets.only(left: 40, right: 40),
-                      child: Text(mlSlideThreeSubtitle, textAlign: TextAlign.justify, style: secondaryTextStyle(size: 16)),
+                      child: Text(mlSlideThreeSubtitle, textAlign: TextAlign.center, style: secondaryTextStyle(size: 16)),
                     ),
                   ],
                 ),

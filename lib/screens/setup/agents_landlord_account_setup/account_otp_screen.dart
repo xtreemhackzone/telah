@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:manager/widgets/custom_buttons.dart';
 import '../../../util/assets.dart';
@@ -42,10 +43,17 @@ class _AccountOTPScreenState extends State<AccountOTPScreen> {
         child: Center(
           child: Column(
             children: [
-              SizedBox(
-                width: 60,
-                child: SvgPicture.asset(AssetsPath.tickIcon),
+              Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 30),
+                child: Center(
+                    child: FAProgressBar(
+                      currentValue: 60,
+                      backgroundColor: const Color(0xffE3E6E8),
+                      progressColor: AppColors.defaultBlue,
+                      size: 9,
+                    )),
               ),
+              SvgPicture.asset(AssetsPath.formVerify, height: 60,),
               const SizedBox(
                 height: 5,
               ),

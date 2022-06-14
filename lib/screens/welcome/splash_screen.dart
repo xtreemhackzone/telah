@@ -18,7 +18,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
-  int? isViewed;
+  int? isViewed = 0;
 
   startTime() async {
     var duration = const Duration(seconds: 9);
@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       print(prefs.getInt('onBoard'));
       finish(context);
-      const OnBoardingScreen().launch(context);
+      const IntroScreen().launch(context);
     }
     else{
       finish(context);

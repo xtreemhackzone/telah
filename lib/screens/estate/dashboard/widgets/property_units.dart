@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:manager/util/colors.dart';
-//import '../../property_unit/manage/property_unit_details_screen.dart';
+import '../../property_unit/manage/property_unit_details_screen.dart';
 
 class PropertyUnitCard extends StatefulWidget {
   final String address;
-  final String propertyType;
+  final String propertyOccupant;
 
   PropertyUnitCard({
-    required this.propertyType,
+    required this.propertyOccupant,
     required this.address,
   });
   @override
@@ -22,12 +22,12 @@ class _PropertyUnitCardState extends State<PropertyUnitCard> {
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       child: GestureDetector(
         onTap: () {
-          /*Navigator.push(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => PropertyUnitDetailsScreen(),
             ),
-          );*/
+          );
         },
         child: Container(
           height: 62.0,
@@ -62,7 +62,7 @@ class _PropertyUnitCardState extends State<PropertyUnitCard> {
                           Text(widget.address, style: TextStyle( fontWeight: FontWeight.bold,),),
                           //Text(widget.name),
                           SizedBox(height: 5,),
-                          Text(widget.propertyType)
+                          Text(widget.propertyOccupant)
                         ],
                       )
                     ],

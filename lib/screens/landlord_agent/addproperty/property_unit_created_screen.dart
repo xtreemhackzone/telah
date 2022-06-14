@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../util/size_model.dart';
 import '../../../widgets/custom_buttons.dart';
 import '../../../widgets/custom_dividers.dart';
-import '../dashboard/agent_dashboard_screen.dart';
+import '../dashboard/landlord_agent_dashboard_screen.dart';
 import 'add_property_unit_screen.dart';
 
 class Finished extends StatefulWidget {
@@ -27,7 +27,7 @@ class _FinishedState extends State<Finished> {
                 Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
-                        builder: ((context) => const AgentDashboard())),
+                        builder: ((context) => const LandlordAgentDashboard())),
                     (Route<dynamic> route) => false);
               },
               icon: const Icon(
@@ -39,7 +39,7 @@ class _FinishedState extends State<Finished> {
               Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
-                      builder: ((context) => const AgentDashboard())),
+                      builder: ((context) => const LandlordAgentDashboard())),
                   (Route<dynamic> route) => false);
             },
             child: Text('Back to dashboard',

@@ -42,7 +42,7 @@ class _AccountNameScreenState extends State<AccountNameScreen> {
           child: Column(
             children: <Widget>[
                Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16),
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 30),
                 child: Center(
                     child: FAProgressBar(
                       currentValue: 40,
@@ -51,18 +51,14 @@ class _AccountNameScreenState extends State<AccountNameScreen> {
                       size: 9,
                     )),
               ),
-
-              SizedBox(
-                width: 60,
-                child: SvgPicture.asset(AssetsPath.userIcon),
-              ),
+              SvgPicture.asset(AssetsPath.formPersonalInfo, height: 60),
               const SizedBox(
                 width: 250,
                 child: Text('Enter Personal Details',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.w800,
-                      fontSize: 25,
+                      fontSize: 23,
                     )),
               ),
               const SizedBox(height: 10),

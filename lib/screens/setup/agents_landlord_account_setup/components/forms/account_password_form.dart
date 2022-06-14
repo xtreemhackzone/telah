@@ -53,7 +53,7 @@ class _AccountPasswordFormState extends State<AccountPasswordForm> {
           SizedBox(height: 15,),
 
 
-          Padding(
+          /*Padding(
             padding: const EdgeInsets.only(
                 left: 16, right: 16, bottom: 8, top: 8),
             child: ButtonWidgets().customButton(
@@ -62,7 +62,7 @@ class _AccountPasswordFormState extends State<AccountPasswordForm> {
                 buttonText: proceedTxt,
                 buttonHeight: Sizes.h50,
                 buttonColor: AppColors.defaultBlue),
-          ),
+          ),*/
         ],
       ),
     );
@@ -115,7 +115,6 @@ class _AccountPasswordFormState extends State<AccountPasswordForm> {
                   buttonHeight: Sizes.h50,
                   buttonColor: AppColors.defaultBlue),
             ),
-
           ],
         ),
       ),

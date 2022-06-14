@@ -4,6 +4,8 @@ import '../../../../util/assets.dart';
 import '../../../../util/colors.dart';
 import '../../../../util/size_model.dart';
 import '../../../../widgets/custom_dividers.dart';
+import '../../wallet/wallet_topup_screen.dart';
+import '../../wallet/wallet_transaction_screen.dart';
 import '../widgets/transaction_card.dart';
 
 
@@ -54,8 +56,8 @@ class _WalletTabState extends State<WalletTab> {
                       ),
                   InkWell(
                     onTap: (){
-                      /*Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const WalletTransactionScreen()));*/
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => const WalletTransactionScreen()));
                     },
                     child: Text('See All', style: TextStyle(
                       fontSize: Sizes.w20,
@@ -101,8 +103,8 @@ class _WalletTabState extends State<WalletTab> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          /*Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const WalletTopUpScreen()));*/
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const WalletTopUpScreen()));
         },
         backgroundColor: AppColors.defaultBlue,
         child: const Icon(Icons.add),

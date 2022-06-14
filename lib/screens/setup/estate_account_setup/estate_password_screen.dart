@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:manager/util/assets.dart';
 import 'package:manager/util/size_model.dart';
 import 'package:manager/widgets/app_bar.dart';
+import '../../../util/colors.dart';
 import 'components/forms/estate_password_form.dart';
 
 class EstatePasswordScreen extends StatefulWidget {
@@ -27,6 +29,16 @@ class _EstatePasswordScreenState extends State<EstatePasswordScreen> {
             child: Center(
               child: Column(
                 children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16, right: 16, bottom: 30),
+                    child: Center(
+                        child: FAProgressBar(
+                          currentValue: 95,
+                          backgroundColor: const Color(0xffE3E6E8),
+                          progressColor: AppColors.defaultBlue,
+                          size: 9,
+                        )),
+                  ),
                   SizedBox(height: 20,),
                   SvgPicture.asset(AssetsPath.formPassword, height: 70),
                   const SizedBox(
