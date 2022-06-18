@@ -133,12 +133,7 @@ class _AddAdressState extends State<AddAdress> {
   }
 
   proceed() {
-    if (houseNum == '') {
-// tell user to select
-    } else {
-      // continue
-      Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const PropertyDetails()));
-    }
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => const PropertyDetails()));
   }
 }

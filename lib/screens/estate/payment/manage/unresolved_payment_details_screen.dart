@@ -1,32 +1,71 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../util/colors.dart';
-import '../../../util/size_model.dart';
-import '../../../widgets/app_bar.dart';
-import '../../../widgets/custom_buttons.dart';
-import '../../../widgets/custom_dividers.dart';
+import '../../../../util/colors.dart';
+import '../../../../util/size_model.dart';
+import '../../../../widgets/custom_buttons.dart';
+import '../../../../widgets/custom_dividers.dart';
 
-class PaymentDetailsScreen extends StatefulWidget {
-  const PaymentDetailsScreen({Key? key}) : super(key: key);
+class UnresolvedPaymentDeatilsScreen extends StatefulWidget {
+  const UnresolvedPaymentDeatilsScreen({Key? key}) : super(key: key);
 
   @override
-  State<PaymentDetailsScreen> createState() => _PaymentDetailsScreenState();
+  State<UnresolvedPaymentDeatilsScreen> createState() => _UnresolvedPaymentDeatilsScreenState();
 }
 
-class _PaymentDetailsScreenState extends State<PaymentDetailsScreen> {
+class _UnresolvedPaymentDeatilsScreenState extends State<UnresolvedPaymentDeatilsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget().appbar(
-        context: context,
-        title: 'John Doe',
+      appBar: AppBar(
+        elevation: 0,
+        toolbarHeight: Sizes.h70,
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(
+          color: Colors.black, //change your color here
+        ),
+        title: Text('John Doe', style: TextStyle(color: Colors.black, fontSize: Sizes.w18, fontWeight: FontWeight.bold),),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(bottom: Sizes.h10, right: Sizes.w10),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+
+                    child: Text('Reject', style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.errorText),)
+                ),
+                customVerticalDivider(width: Sizes.w10),
+                InkWell(
+                    onTap: (){
+                      /*Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) => const NotificationScreen()));*/
+                    },
+                    child: Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.all(Radius.circular(6))
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(Icons.check, color: Colors.white,),
+                            Text('Approve')
+                          ],
+                        )
+                    )
+                )
+              ],
+            ),
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 20,),
-            Text("Property Owner", style: TextStyle(fontSize: Sizes.w18, fontWeight: FontWeight.bold),),
+            Text("Summary", style: TextStyle(fontSize: Sizes.w18, fontWeight: FontWeight.bold),),
             SizedBox(height: 25,),
             Center(
               child: Container(
@@ -67,7 +106,7 @@ class _PaymentDetailsScreenState extends State<PaymentDetailsScreen> {
               height: Sizes.h130,
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: AppColors.defaultBlue.withOpacity(.15),
+                  color: AppColors.warningText.withOpacity(.15),
                   borderRadius:
                   BorderRadius.all(Radius.circular(Sizes.w15))),
               child: Column(

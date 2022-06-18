@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:manager/widgets/app_bar.dart';
 import 'package:manager/widgets/custom_buttons.dart';
+import '../../../../util/colors.dart';
 import '../../../../widgets/custom_dividers.dart';
 import 'add_estate_services_screen.dart';
 
@@ -30,18 +34,23 @@ class _PropertyUnitState extends State<PropertyUnit> {
           data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
           child: Padding(
             padding: EdgeInsets.only(
-                top: Sizes.h20,
+                top: Sizes.h10,
                 left: Sizes.w20,
                 right: Sizes.w20,
                 bottom: Sizes.w10),
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  LinearProgressIndicator(
-                    backgroundColor: Colors.grey.withOpacity(.5),
-                    valueColor:
-                        const AlwaysStoppedAnimation<Color>(Colors.blue),
-                    value: .1,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16, right: 16),
+                    child: Center(
+                        child: FAProgressBar(
+                          currentValue: 20,
+                          backgroundColor: const Color(0xffE3E6E8),
+                          progressColor: AppColors.defaultBlue,
+                          size: 9,
+                        )
+                    ),
                   ),
                   customDivider(height: Sizes.h50),
                   Center(
@@ -117,7 +126,7 @@ class _PropertyUnitState extends State<PropertyUnit> {
                   ),
                   customDivider(height: Sizes.h30),
                   GestureDetector(
-                    onTap: addUnit,
+                    onTap: addUnitType,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -171,55 +180,120 @@ class _PropertyUnitState extends State<PropertyUnit> {
               child: Padding(
                 padding: EdgeInsets.only(
                     top: Sizes.h30, left: Sizes.w15, right: Sizes.w15),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Add property unit type',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: Sizes.w20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Add property unit type',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: Sizes.w20),
+                    ),
+                    customDivider(height: Sizes.h25),
+                    TextFormField(
+                      controller: addproperty,
+                      style: TextStyle(fontSize: Sizes.w13),
+                      textInputAction: TextInputAction.done,
+                      keyboardType: TextInputType.name,
+                      decoration: Decor().formDecor(
+                          context: context, labelText: 'Property type'),
+                    ),
+                    customDivider(height: Sizes.h15),
+                    TextFormField(
+                      style: TextStyle(fontSize: Sizes.w13),
+                      textInputAction: TextInputAction.done,
+                      keyboardType: TextInputType.name,
+                      decoration: Decor().formDecor(
+                          context: context, labelText: 'Description'),
+                    ),
+                    customDivider(height: Sizes.h25),
+                    SizedBox(
+                      height: Sizes.h50,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                          style: Decor().buttonDecor(context: context),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            // the paystack modal
+                            if (addproperty.text.trim.toString().isEmpty) {
+                            } else {
+                              setState(() {
+                                addedproperty.add(addproperty.text);
+                              });
+                            }
+                          },
+                          child: Text(
+                            'Add property type',
+                            style: TextStyle(fontSize: Sizes.w20),
+                          )),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
+  }
+
+  addUnitType() {
+    return showModalBottomSheet(
+        isScrollControlled: true,
+        context: context,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(Sizes.w20),
+              topLeft: Radius.circular(Sizes.w20)),
+        ),
+        builder: (context) {
+          return Padding(
+            padding: MediaQuery.of(context).viewInsets,
+            child: SizedBox(
+              height: Sizes.h250,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    top: Sizes.h30, left: Sizes.w15, right: Sizes.w15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Add Property Unit Type',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: Sizes.w20),
+                    ),
+                    customDivider(height: Sizes.h25),
+                    FormBuilderTextField(
+                      controller: addproperty,
+                      //style: TextStyle(fontSize: Sizes.w13),
+                      textInputAction: TextInputAction.done,
+                      keyboardType: TextInputType.name,
+                      decoration: const InputDecoration(
+                          labelText: 'Property Type',
+                          suffixIcon: Icon(Iconsax.money)
                       ),
-                      customDivider(height: Sizes.h25),
-                      TextFormField(
-                        controller: addproperty,
-                        style: TextStyle(fontSize: Sizes.w13),
-                        textInputAction: TextInputAction.done,
-                        keyboardType: TextInputType.name,
-                        decoration: Decor().formDecor(
-                            context: context, labelText: 'Property type'),
-                      ),
-                      customDivider(height: Sizes.h15),
-                      TextFormField(
-                        style: TextStyle(fontSize: Sizes.w13),
-                        textInputAction: TextInputAction.done,
-                        keyboardType: TextInputType.name,
-                        decoration: Decor().formDecor(
-                            context: context, labelText: 'Description'),
-                      ),
-                      customDivider(height: Sizes.h25),
-                      SizedBox(
-                        height: Sizes.h50,
-                        width: double.infinity,
-                        child: ElevatedButton(
-                            style: Decor().buttonDecor(context: context),
-                            onPressed: () {
-                              Navigator.pop(context);
-                              // the paystack modal
-                              if (addproperty.text.trim.toString().isEmpty) {
-                              } else {
-                                setState(() {
-                                  addedproperty.add(addproperty.text);
-                                });
-                              }
-                            },
-                            child: Text(
-                              'Add property type',
-                              style: TextStyle(fontSize: Sizes.w20),
-                            )),
-                      )
-                    ],
-                  ),
+                      name: 'property_type',
+                    ),
+                    customDivider(height: Sizes.h25),
+                    SizedBox(
+                      height: Sizes.h50,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                          style: Decor().buttonDecor(context: context),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            // the paystack modal
+                            if (addproperty.text.trim.toString().isEmpty) {
+                            } else {
+                              setState(() {
+                                addedproperty.add(addproperty.text);
+                              });
+                            }
+                          },
+                          child: Text(
+                            'Add property type',
+                            style: TextStyle(fontSize: Sizes.w20),
+                          )),
+                    )
+                  ],
                 ),
               ),
             ),

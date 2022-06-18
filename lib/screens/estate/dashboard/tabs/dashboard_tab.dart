@@ -2,6 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:manager/screens/estate/notification/notification_screen.dart';
 
 import '../../../../util/assets.dart';
 import '../../../../util/colors.dart';
@@ -107,11 +108,17 @@ class _DashboardTabState extends State<DashboardTab> {
                   child: SvgPicture.asset(AssetsPath.workspace, height: Sizes.w25, color: Colors.black),
                 ),
                 customVerticalDivider(width: Sizes.w10),
-                Padding(
-                  padding: EdgeInsets.only(right: 4),
-                    child: Badge(
-                      badgeContent: Text('3', style: TextStyle(fontSize: 13, color: Colors.white),),
-                      child: Icon(Iconsax.notification, size: Sizes.w30, color: Colors.black,),
+                InkWell(
+                  onTap: (){
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) => const NotificationScreen()));
+                  },
+                    child: Padding(
+                        padding: EdgeInsets.only(right: 4),
+                        child: Badge(
+                          badgeContent: Text('3', style: TextStyle(fontSize: 13, color: Colors.white),),
+                          child: Icon(Iconsax.notification, size: Sizes.w30, color: Colors.black,),
+                        )
                     )
                 )
               ],

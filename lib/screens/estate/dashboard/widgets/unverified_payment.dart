@@ -6,7 +6,7 @@ import '../../../../util/assets.dart';
 import '../../../../util/colors.dart';
 import '../../../../util/size_model.dart';
 import '../../../../widgets/custom_dividers.dart';
-import '../../payment/unresolve_payments_screen.dart';
+import '../../payment/manage/unresolve_payments_screen.dart';
 
 Widget UnverifiedPayments(BuildContext context){
   return Card(

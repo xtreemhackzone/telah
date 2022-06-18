@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:manager/screens/estate/payment/widget/payments_widgets.dart';
 
-import '../../../util/colors.dart';
-import '../../../util/size_model.dart';
-import '../../../widgets/app_bar.dart';
+import '../../../../util/colors.dart';
+import '../../../../util/size_model.dart';
+import '../../../../widgets/app_bar.dart';
 
-class ResolvedPaymentsScreen extends StatefulWidget {
-  const ResolvedPaymentsScreen({Key? key}) : super(key: key);
+class UnresolvedPaymentsScreen extends StatefulWidget {
+  const UnresolvedPaymentsScreen({Key? key}) : super(key: key);
 
   @override
-  State<ResolvedPaymentsScreen> createState() => _ResolvedPaymentsScreenState();
+  State<UnresolvedPaymentsScreen> createState() => _UnresolvedPaymentsScreenState();
 }
 
-class _ResolvedPaymentsScreenState extends State<ResolvedPaymentsScreen> {
+class _UnresolvedPaymentsScreenState extends State<UnresolvedPaymentsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,10 +52,11 @@ class _ResolvedPaymentsScreenState extends State<ResolvedPaymentsScreen> {
               ),
             ),
             SizedBox(height: 20,),
-            PaymentHistoryStatus(context,resolved: true),
-            PaymentHistoryStatus(context,resolved: true),
-            PaymentHistoryStatus(context,resolved: true),
-            PaymentHistoryStatus(context,resolved: true),
+            UnresolvedPaymentsListCard(
+              context,
+              name: 'Kelvin Keme',
+              date: 'Jan 1 - Jan 20 2022',
+            )
           ],
         ),
       ),

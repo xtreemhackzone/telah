@@ -2,13 +2,13 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:manager/screens/estate/payment/record_payment/record_payment.dart';
-import 'package:manager/screens/estate/payment/resolved_payments_screen.dart';
-import 'package:manager/screens/estate/payment/unresolve_payments_screen.dart';
+import 'package:manager/screens/estate/payment/manage/resolved_payments_screen.dart';
+import 'package:manager/screens/estate/payment/manage/unresolve_payments_screen.dart';
 import 'package:manager/screens/estate/payment/widget/payments_widgets.dart';
 import 'package:manager/widgets/app_bar.dart';
-import '../../../util/colors.dart';
-import '../../../util/size_model.dart';
-import 'all_payments_screen.dart';
+import '../../../../util/colors.dart';
+import '../../../../util/size_model.dart';
+import '../all_payments_screen.dart';
 
 class ManagerPaymentScreen extends StatefulWidget {
   const ManagerPaymentScreen({Key? key}) : super(key: key);

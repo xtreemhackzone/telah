@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../../../util/size_model.dart';
 
@@ -98,13 +99,7 @@ Widget OngoingGuestCard({String? name, String? address, String? date})
         ),
         child: Align(
           alignment: Alignment.center,
-          child: Text("JD",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontSize: 18,
-                color: Colors.white
-            ),
-          ),
+          child: Icon(Iconsax.house_2)
         ),
       ),
       InkWell(

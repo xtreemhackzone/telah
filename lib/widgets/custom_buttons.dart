@@ -159,6 +159,7 @@ mgmtButton(
             },
             child: Text(buttonText ?? 'Proceed',
                 style: TextStyle(fontSize: buttonTextSize ?? Sizes.w18))),
+
         Text("Skip")
       ],
     )

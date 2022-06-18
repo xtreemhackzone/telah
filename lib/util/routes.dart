@@ -4,7 +4,7 @@ import '../screens/estate/expense/add_expense_screen.dart';
 import '../screens/estate/ledger/ledger_screen.dart';
 import '../screens/estate/more/services/manage/services_list_screen.dart';
 import '../screens/estate/more/settings/account_settings_screen.dart';
-import '../screens/estate/payment/payment_screen.dart';
+import '../screens/estate/payment/manage/payment_screen.dart';
 import '../screens/estate/property_unit/create/property_address_screen.dart';
 import '../screens/estate/payment/record_payment/record_payment.dart';
 import '../screens/estate/more/analytics/analytics_screen.dart';

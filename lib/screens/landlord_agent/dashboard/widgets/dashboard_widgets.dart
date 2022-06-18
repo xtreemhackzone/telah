@@ -7,6 +7,7 @@ import '../../../../util/assets.dart';
 import '../../../../util/size_model.dart';
 import '../../../../util/strings.dart';
 import '../../../../widgets/custom_dividers.dart';
+import '../../addproperty/add_property_unit_screen.dart';
 import 'custom_widgets.dart';
 
 Widget AccountSetup(BuildContext context){
@@ -68,11 +69,11 @@ Widget AccountSetup(BuildContext context){
                 borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                 highlightColor: Colors.blue.shade400,
                 onTap: () => {
-                  /*Navigator.push(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                          const EstateNameScreen()))*/
+                          const AddProperty()))
                 },
                 child: Center(
                   child: Text(

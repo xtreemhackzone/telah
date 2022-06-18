@@ -54,8 +54,10 @@ class _PropertiesTabstate extends State<PropertiesTab> {
                       padding: FxSpacing.vertical(4),
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          border: Border.all(color: AppColors.borderLine, width: .7),
-                          borderRadius: const BorderRadius.all(Radius.circular(10))),
+                          border: Border(
+                            bottom: BorderSide(color: AppColors.borderLine, width: .7),
+                          ),
+                      ),
                       child: Row(
                         children: [
                           Container(

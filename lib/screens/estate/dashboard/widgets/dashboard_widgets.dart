@@ -30,7 +30,7 @@ Widget AccountSetup(BuildContext context){
               children: [
                 Row(
                   children: [
-                    Text('Estate Setup',
+                    Text('Account Setup',
                         style: TextStyle(
                             color: Colors.blue,
                             fontSize: Sizes.w20,

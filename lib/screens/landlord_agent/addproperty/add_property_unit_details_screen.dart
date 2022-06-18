@@ -91,7 +91,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                 Expanded(
                     child: ListView.separated(
                         itemBuilder: (BuildContext context, int i) {
-                          return placeHold(totalWidth, node);
+                          return itemsgrid(totalWidth, node);
                         },
                         separatorBuilder: (BuildContext context, int i) {
                           return Container();
@@ -175,7 +175,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
             textInputAction: TextInputAction.next,
             onEditingComplete: () => node.nextFocus(),
             decoration:
-                Decor().formDecor(context: context, labelText: 'House number'),
+                Decor().formDecor(context: context, labelText: 'Rooms'),
           ),
         ),
         customVerticalDivider(width: Sizes.w10),
@@ -190,7 +190,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
             textInputAction: TextInputAction.next,
             onEditingComplete: () => node.nextFocus(),
             decoration: Decor().formDecor(
-                context: context, labelText: 'Street name (Optional)'),
+                context: context, labelText: 'Toilets'),
           ),
         )
       ],

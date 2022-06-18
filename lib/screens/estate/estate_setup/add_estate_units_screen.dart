@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:manager/widgets/custom_buttons.dart';
 
 import '../../../util/assets.dart';
+import '../../../util/colors.dart';
 import '../../../util/decor.dart';
 import '../../../util/size_model.dart';
 import '../../../widgets/app_bar.dart';
@@ -18,7 +20,7 @@ class AddEstateUnitsScreen extends StatefulWidget {
 
 class _AddEstateUnitsScreenState extends State<AddEstateUnitsScreen> {
   int amount = 0;
-  int walletAmount = 0;
+  int walletAmount = 100;
   int creditAmount = 0;
   NumberWidget uw = NumberWidget();
   @override
@@ -35,7 +37,7 @@ class _AddEstateUnitsScreenState extends State<AddEstateUnitsScreen> {
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.only(
-                  top: Sizes.h50,
+                  top: Sizes.h10,
                   left: Sizes.w20,
                   right: Sizes.w20,
                   bottom: Sizes.w10),
@@ -43,11 +45,13 @@ class _AddEstateUnitsScreenState extends State<AddEstateUnitsScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    LinearProgressIndicator(
-                      backgroundColor: Colors.grey.withOpacity(.5),
-                      valueColor:
-                      const AlwaysStoppedAnimation<Color>(Colors.blue),
-                      value: .1,
+                    Center(
+                        child: FAProgressBar(
+                          currentValue: 10,
+                          backgroundColor: const Color(0xffE3E6E8),
+                          progressColor: AppColors.defaultBlue,
+                          size: 9,
+                        )
                     ),
                     customDivider(height: Sizes.h50),
                     Center(
@@ -61,7 +65,7 @@ class _AddEstateUnitsScreenState extends State<AddEstateUnitsScreen> {
                       'How many property units do you manage?',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: Sizes.w25),
+                          fontWeight: FontWeight.bold, fontSize: Sizes.w20),
                     ),
                     customDivider(height: Sizes.h15),
                     Text(
@@ -75,7 +79,7 @@ class _AddEstateUnitsScreenState extends State<AddEstateUnitsScreen> {
                     customDivider(height: Sizes.h50),
                     TextFormField(
                         style: TextStyle(
-                            fontSize: Sizes.w20, fontWeight: FontWeight.bold),
+                            fontSize: Sizes.w17, fontWeight: FontWeight.bold),
                         keyboardType: TextInputType.number,
                         textInputAction: TextInputAction.next,
                         onEditingComplete: () => node.nextFocus(),
@@ -90,10 +94,10 @@ class _AddEstateUnitsScreenState extends State<AddEstateUnitsScreen> {
                             });
                           }
                         },
-                        decoration: Decor().formDecor(
-                          context: context,
-                          labelText: 'Property units',
-                        )),
+                      decoration: InputDecoration(
+                        labelText: "Enter Number of Property Units "
+                      ),
+                        ),
                     customDivider(height: Sizes.h25),
                     Container(
                       height: Sizes.h50,

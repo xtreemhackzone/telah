@@ -67,7 +67,7 @@ class _EstateManagementScreenState extends State<EstateManagementScreen> {
                     const SizedBox(
                       height: 16,
                     ),
-                    EstateManagementForm()
+                    EstateManagementForm(),
                   ],
                 ),
               ),

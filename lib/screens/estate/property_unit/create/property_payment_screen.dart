@@ -25,7 +25,7 @@ class _PropertyPaymentScreenState extends State<PropertyPaymentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBarWidget().appbar(context: context, title: 'Record Payment'),
+        appBar: AppBarWidget().appbar(context: context,),
       body: ProgressHUD(
         child: Builder(
           builder: (context) => Center(
@@ -511,15 +511,16 @@ class _PropertyPaymentScreenState extends State<PropertyPaymentScreen> {
                   children: [
                     Text(
                       'Top-Up Wallet',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: Sizes.w20),
                     ),
                     customDivider(height: Sizes.h25),
                     FormBuilderTextField(
-                        name: "Amount",
+                      name: "Amount",
                       decoration: const InputDecoration(
-                        labelText: 'Amount',
-                        suffixIcon: Icon(Iconsax.money)
+                          labelText: 'Amount',
+                          suffixIcon: Icon(Iconsax.money)
                       ),
                       textInputAction: TextInputAction.done,
                     ),
