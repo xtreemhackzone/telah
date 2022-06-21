@@ -6,8 +6,9 @@ import '../../../../util/assets.dart';
 import '../../../../util/colors.dart';
 import '../../../../util/size_model.dart';
 import '../../../../widgets/custom_dividers.dart';
+import '../../wallet/bill_payment/bill_payment_option.dart';
 
-Widget OutstandingBills(){
+Widget OutstandingBills(BuildContext context){
   return Card(
     elevation: 0,
     shape: RoundedRectangleBorder(
@@ -45,86 +46,74 @@ Widget OutstandingBills(){
             style: TextStyle(color: AppColors.errorText, fontSize: Sizes.w20, fontWeight:FontWeight.bold)),
       ),
       children: [
-        expandCh(),
+        expandCh(context),
         const SizedBox(height: 10,),
       ],
     ),
   );
 }
 
-expandCh() {
+expandCh(BuildContext context) {
   return Padding(
     padding: EdgeInsets.only(left: Sizes.w10, right: Sizes.w10),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
-          children: [
-            Container(
-              width: Sizes.w50,
-              height: Sizes.h50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Sizes.w10),
-                color: Colors.blue.withOpacity(.2),
-              ),
-              child: Align(
-                alignment: Alignment.center,
-                child: Icon(Iconsax.flash, size: Sizes.w30, color: AppColors.defaultBlue,),
-              ),
-            ),
-            customVerticalDivider(width: Sizes.w10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Subscription Charge',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: Sizes.w18,
-                      fontWeight: FontWeight.bold),
+    child: GestureDetector(
+      onTap: (){
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => BillPaymentScreen()));
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: Sizes.w50,
+                height: Sizes.h50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Sizes.w10),
+                  color: Colors.blue.withOpacity(.2),
                 ),
-                Text(
-                  'Overdue',
-                  style: TextStyle(color: Colors.grey, fontSize: Sizes.w15),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Icon(Iconsax.flash, size: Sizes.w30, color: AppColors.defaultBlue,),
                 ),
-              ],
-            ),
-          ],
-        ),
-         Row(
-           children: [
-            Column(
-              children: [
-                Text('N2,000',
-                  style: TextStyle(
-                      fontSize: Sizes.w20, fontWeight: FontWeight.bold),),
-                Padding(
-                  padding: EdgeInsets.only(bottom: Sizes.h5),
-                  child: Container(
-                      width: Sizes.w80,
-                      decoration: BoxDecoration(
-                          //color: AppColors.defaultBlue,
-                          borderRadius:
-                          BorderRadius.all(Radius.circular(Sizes.w10))),
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            top: Sizes.h5, bottom: Sizes.h5),
-                        child: Center(
-                            child: Text(
-                              'Pay Bill',
-                              style: TextStyle(
-                                  fontSize: Sizes.w15, color: AppColors.success),
-                            )),
-                      )),
-                )
-              ],
-            )
-           ],
-         ),
+              ),
+              customVerticalDivider(width: Sizes.w10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Subscription Charge',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: Sizes.w18,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'Overdue',
+                    style: TextStyle(color: Colors.grey, fontSize: Sizes.w15),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Column(
+                children: [
+                  Text('Pay Bill',
+                    style: TextStyle(
+                        fontSize: Sizes.w18, fontWeight: FontWeight.bold, color: AppColors.success),
+                  ),
+                ],
+              )
+            ],
+          ),
 
 
-      ],
+        ],
+      ),
     ),
   );
 }

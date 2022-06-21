@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../util/colors.dart';
@@ -25,41 +26,6 @@ class _UnresolvedPaymentDeatilsScreenState extends State<UnresolvedPaymentDeatil
           color: Colors.black, //change your color here
         ),
         title: Text('John Doe', style: TextStyle(color: Colors.black, fontSize: Sizes.w18, fontWeight: FontWeight.bold),),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(bottom: Sizes.h10, right: Sizes.w10),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                InkWell(
-
-                    child: Text('Reject', style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.errorText),)
-                ),
-                customVerticalDivider(width: Sizes.w10),
-                InkWell(
-                    onTap: (){
-                      /*Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) => const NotificationScreen()));*/
-                    },
-                    child: Container(
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.all(Radius.circular(6))
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.check, color: Colors.white,),
-                            Text('Approve')
-                          ],
-                        )
-                    )
-                )
-              ],
-            ),
-          )
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -115,7 +81,7 @@ class _UnresolvedPaymentDeatilsScreenState extends State<UnresolvedPaymentDeatil
                 children: [
                   Text('N2,000,000',
                       style: TextStyle(
-                          color: AppColors.defaultBlue, fontSize: Sizes.w22, fontWeight: FontWeight.bold)),
+                          color: AppColors.defaultBlue, fontSize: Sizes.w25, fontWeight: FontWeight.bold)),
                   customDivider(height: Sizes.h5),
                   Container(
                     padding: EdgeInsets.all(8),
@@ -124,7 +90,7 @@ class _UnresolvedPaymentDeatilsScreenState extends State<UnresolvedPaymentDeatil
                         //border: Border.all(),
                         borderRadius: BorderRadius.all(Radius.circular(5))
                     ),
-                    child: Text('Water Bill - Jan',
+                    child: Text('Service Charge',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: Sizes.w15)),
@@ -136,7 +102,7 @@ class _UnresolvedPaymentDeatilsScreenState extends State<UnresolvedPaymentDeatil
             ),
             SizedBox(height: 30,),
             Center(
-                child: Row(
+                /*child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -147,11 +113,170 @@ class _UnresolvedPaymentDeatilsScreenState extends State<UnresolvedPaymentDeatil
                     ButtonWidgets().utilityButton(context: context, function: print, icon: Icons.share_outlined, buttonText: "Share"),
                     SizedBox(height: 20,),
                   ],
-                )
+                )*/
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+
+                  InkWell(
+                      onTap: (){
+                        ApprovePayment();
+                      },
+                      child: Container(
+                          padding: EdgeInsets.only(top:5, bottom: 5, left: 10, right: 10),
+                          decoration: BoxDecoration(
+                              border: Border.all(color: AppColors.success),
+                              borderRadius: BorderRadius.all(Radius.circular(6))
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(Icons.check, color: AppColors.success,),
+                              Text('Approve', style: TextStyle(fontSize: Sizes.w20, color: AppColors.success, fontWeight: FontWeight.bold),)
+                            ],
+                          )
+                      )
+                  ),
+                  customVerticalDivider(width: Sizes.w25),
+                  InkWell(
+                      onTap:(){
+                        RejectPayment();
+                      },
+                      child: Container(
+                        padding: EdgeInsets.only(top:5, bottom: 5, left: 10, right: 10),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: AppColors.errorText), borderRadius: BorderRadius.all(Radius.circular(6))
+                        ),
+                          child: Row(
+                            children: [
+                              Icon(Icons.close, color: AppColors.errorText,),
+                              Text('Reject', style: TextStyle(fontSize: Sizes.w20, color: AppColors.errorText, fontWeight: FontWeight.bold),)
+                            ],
+                          )
+                      )
+                  ),
+
+                ],
+              ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  RejectPayment() {
+    return showModalBottomSheet(
+        isScrollControlled: true,
+        context: context,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(Sizes.w20),
+              topLeft: Radius.circular(Sizes.w20)),
+        ),
+        builder: (context) {
+          return Padding(
+            padding: MediaQuery.of(context).viewInsets,
+            child: SizedBox(
+              height: Sizes.h250,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    top: Sizes.h30, left: Sizes.w15, right: Sizes.w15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Enter reason for rejection',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: Sizes.w20),
+                    ),
+                    customDivider(height: Sizes.h25),
+                    FormBuilderTextField(
+                      name: "Reason",
+                      decoration: const InputDecoration(
+                          labelText: 'Reason',
+                      ),
+                      textInputAction: TextInputAction.done,
+                    ),
+                    customDivider(height: Sizes.h25),
+                    SizedBox(
+                      height: Sizes.h50,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                          //style: Decor().buttonDecor(context: context),
+                        style: ElevatedButton.styleFrom(
+                          primary: AppColors.errorText,
+                          elevation: 0,
+                        ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            'Reject',
+                            style: TextStyle(fontSize: Sizes.w20),
+                          )),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
+  }
+
+  ApprovePayment() {
+    return showModalBottomSheet(
+        isScrollControlled: true,
+        context: context,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(Sizes.w20),
+              topLeft: Radius.circular(Sizes.w20)),
+        ),
+        builder: (context) {
+          return Padding(
+            padding: MediaQuery.of(context).viewInsets,
+            child: SizedBox(
+              height: Sizes.h250,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    top: Sizes.h30, left: Sizes.w15, right: Sizes.w15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Are you sure you want to resolve this payment?',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: Sizes.w20),
+                    ),
+                    customDivider(height: Sizes.h25),
+                    SizedBox(
+                      height: Sizes.h50,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        //style: Decor().buttonDecor(context: context),
+                          style: ElevatedButton.styleFrom(
+                            primary: AppColors.success,
+                            elevation: 0,
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            'Yes, resolve',
+                            style: TextStyle(fontSize: Sizes.w20),
+                          )),
+                    ),
+                    Center(
+                      child: TextButton(onPressed: (){Navigator.pop(context);}, child: Text("No, don't resolve")),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
   }
 }

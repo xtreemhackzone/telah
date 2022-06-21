@@ -258,7 +258,7 @@ class _DashboardTabState extends State<DashboardTab> {
               customDivider(height: Sizes.h20),
               UnverifiedPayments(context),
               customDivider(height: Sizes.h20),
-              OutstandingBills(),
+              OutstandingBills(context),
               customDivider(height: Sizes.h20),
               UpcomingBill(),
               customDivider(height: Sizes.h20),
